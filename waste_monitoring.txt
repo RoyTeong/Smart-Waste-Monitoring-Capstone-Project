@@ -1,0 +1,43 @@
+Cell 1:
+Title: Waste Level Graph Chart, Type = Graph
+
+from(bucket: "bin_levels_2025-02")
+  |> range(start: v.timeRangeStart, stop: v.timeRangeStop)
+  |> filter(fn: (r) => r["_measurement"] == "bin_levels_data")
+  |> filter(fn: (r) => r["BinID"] == "BIN_001")
+  |> filter(fn: (r) => r["_field"] == "bin_level")
+  |> filter(fn: (r) => r["source"] == "mqtt")
+  |> aggregateWindow(every: v.windowPeriod, fn: mean, createEmpty: false)
+  |> yield(name: "mean")
+
+
+
+Title: Bin 1 Current Fill Level (%), Type = Single Stat
+
+from(bucket: "bin_levels_2025-02")
+  |> range(start: v.timeRangeStart, stop: v.timeRangeStop)
+  |> filter(fn: (r) => r["_measurement"] == "bin_levels_data")
+  |> filter(fn: (r) => r["BinID"] == "BIN_001")
+  |> filter(fn: (r) => r["_field"] == "bin_level")
+  |> filter(fn: (r) => r["source"] == "mqtt")
+
+Title: Bin Level with Bin Location, Type = Table
+
+from(bucket: "bin_levels_2025-02")
+  |> range(start: v.timeRangeStart, stop: v.timeRangeStop)
+  |> filter(fn: (r) => r["_measurement"] == "bin_levels_data")
+  |> filter(fn: (r) => r["BinID"] == "BIN_001")
+  |> filter(fn: (r) => r["_field"] == "address" or r["_field"] == "bin_level")
+  |> filter(fn: (r) => r["source"] == "mqtt")
+  |> pivot(rowKey:["_time"], columnKey: ["_field"], valueColumn: "_value")
+  |> filter(fn: (r) => r["address"] != "No Location Data")
+
+Title: Waste Level Table, Type = Table
+
+from(bucket: "bin_levels_2025-02")
+  |> range(start: v.timeRangeStart, stop: v.timeRangeStop)
+  |> filter(fn: (r) => r["_measurement"] == "bin_levels_data")
+  |> filter(fn: (r) => r["BinID"] == "BIN_001")
+  |> filter(fn: (r) => r["_field"] == "bin_level" or r["_field"] == "bin_status")
+  |> filter(fn: (r) => r["source"] == "mqtt")
+  |> pivot(rowKey:["_time"], columnKey: ["_field"], valueColumn: "_value")
