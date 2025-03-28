@@ -1,1 +1,0 @@
-# Smart-Waste-Monitoring-Capstone-Project
