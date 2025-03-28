@@ -30,9 +30,9 @@ SMTP_SERVER = os.getenv("SMTP_SERVER")
 SMTP_PORT = os.getenv("SMTP_PORT")
 
 INFLUXDB_URL = "http://localhost:8086"
-INFLUXDB_TOKEN = "8bcq81ihsLq5g7G81u940C_5-OVhX1h3zZSNzc_6CLQPxEaTrNCqcrZyLvJPnEfHeaNKaYlOVPvEKRW3GhR4Cg=="
-INFLUXDB_ORG = "AQS"
-INFLUXDB_BUCKET = "mqtt_data"
+INFLUXDB_TOKEN = "8bcq81ihsLq5g7G81u940C_5-OVhX1h3zZSNzc_6CLQPxEaTrNCqcrZyLvJPnEfHeaNKaYlOVPvEKRW3GhR4Cg==" # Replace with your own
+INFLUXDB_ORG = "AQS" # Replace with your own
+INFLUXDB_BUCKET = "mqtt_data" # Replace with your own
 
 
 # Initialize InfluxDB Client
