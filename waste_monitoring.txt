@@ -11,7 +11,7 @@ from(bucket: "bin_levels_2025-02")
   |> yield(name: "mean")
 
 
-
+Cell 2:
 Title: Bin 1 Current Fill Level (%), Type = Single Stat
 
 from(bucket: "bin_levels_2025-02")
@@ -21,6 +21,7 @@ from(bucket: "bin_levels_2025-02")
   |> filter(fn: (r) => r["_field"] == "bin_level")
   |> filter(fn: (r) => r["source"] == "mqtt")
 
+Cell 3:
 Title: Bin Level with Bin Location, Type = Table
 
 from(bucket: "bin_levels_2025-02")
@@ -32,6 +33,7 @@ from(bucket: "bin_levels_2025-02")
   |> pivot(rowKey:["_time"], columnKey: ["_field"], valueColumn: "_value")
   |> filter(fn: (r) => r["address"] != "No Location Data")
 
+Cell 4:
 Title: Waste Level Table, Type = Table
 
 from(bucket: "bin_levels_2025-02")
