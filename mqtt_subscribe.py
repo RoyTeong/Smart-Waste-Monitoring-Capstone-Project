@@ -32,7 +32,7 @@ SMTP_PASS = os.getenv("SMTP_PASS")  # SMTP password
 SMTP_SERVER = os.getenv("SMTP_SERVER")  # SMTP server address
 SMTP_PORT = os.getenv("SMTP_PORT")      # SMTP port
 
-# InfluxDB configuration
+# InfluxDB configuration, replace with your own based on your configuration settings when installing and configuring InfluxDB
 INFLUXDB_URL = "http://localhost:8086"  # InfluxDB server URL
 INFLUXDB_TOKEN = "8bcq81ihsLq5g7G81u940C_5-OVhX1h3zZSNzc_6CLQPxEaTrNCqcrZyLvJPnEfHeaNKaYlOVPvEKRW3GhR4Cg=="  # InfluxDB token
 INFLUXDB_ORG = "AQS"          # InfluxDB organization
