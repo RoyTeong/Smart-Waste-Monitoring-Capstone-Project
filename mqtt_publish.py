@@ -190,4 +190,4 @@ def run():
     read_serial_and_publish(client)
 
 if __name__ == '__main__':
-    run()
+    run() # Start application
