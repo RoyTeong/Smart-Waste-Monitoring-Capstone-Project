@@ -37,6 +37,7 @@ SMTP_PORT = os.getenv("SMTP_PORT")
 ALERT_DURATION_MINUTES = 20
 
 # Initialize Serial Connection to COM3 at 115200 baud with 30 minute timeout
+# Replace COM3 with the respective Serial Port that you've set it in Arduino IDE.
 ser = serial.Serial('COM3', 115200, timeout=1800)
 
 # Timezone Handling - get the local timezone
