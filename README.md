@@ -11,3 +11,5 @@ Download and save a copy of the following files on the MQTT Subscriber's PC:
 5) .env
 
 A copy of a documentation containing steps for relevant software installation and execution can be found in the Roy Teong_Documentation for Smart Waste Monitoring System.pdf.
+
+Note that if the date of the csv files is 3 months (90 days) or older from the date of running the mqtt_subscribe.py python script, the system would automatically delete the csv files to free up system storage space!
